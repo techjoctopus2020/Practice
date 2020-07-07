@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- Database Configuration -->
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibpra</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">admin</property>
+
+
+		<!-- Connection Pool Size -->
+		<property name="hibernate.connection.pool_size">10</property>
+
+		<!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- Configure hbm2ddl.auto for creating schema -->
+		
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- Outputs the SQL queries, should be disabled in Production -->
+		<property name="hibernate.show_sql">true</property>
+
+
+		<!-- Dialect Configuration -->
+		<!-- Dialect is required to let Hibernate know the Database Type, MySQL, 
+			Oracle etc Hibernate 4 automatically figure out Dialect from Database Connection 
+			Metadata -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+
+		<!-- mapping file, we can use Bean annotations too -->
+		<mapping resource="Employee.hbm.xml" />
+		<!-- mapping annotation based entity -->
+		
+		<mapping class="com.Joctopus.Hib_Batch.Entity.Employee1"/>
+		
+		<!-- OneToOne Mapping -->
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.oneToone.Entity.Bank_Tx"/>
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.oneToone.Entity.Customer"/>
+	</session-factory>
+
+
+</hibernate-configuration>
