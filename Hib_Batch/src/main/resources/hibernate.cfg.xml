@@ -34,7 +34,14 @@
 			Oracle etc Hibernate 4 automatically figure out Dialect from Database Connection 
 			Metadata -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-
+		
+		<!-- <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> -->
+		
+		<!-- enable second level cache and query cache -->
+		<!--  <property name="hibernate.cache.use_second_level_cache">true</property>
+		 <property name="hibernate.cache.use_query_cache">true</property>
+ 		 <property name="net.sf.ehcache.configurationResourceName">/myehcache.xml</property>
+ -->
 
 		<!-- mapping file, we can use Bean annotations too -->
 		<mapping resource="Employee.hbm.xml" />
@@ -45,6 +52,22 @@
 		<!-- OneToOne Mapping -->
 		<mapping class="com.Joctopus.Hib_Batch.Mappings.oneToone.Entity.Bank_Tx"/>
 		<mapping class="com.Joctopus.Hib_Batch.Mappings.oneToone.Entity.Customer"/>
+		
+		<!-- OneToMANY Mapping -->
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.OneToMany.Entity.Cart"/>
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.OneToMany.Entity.Items"/>
+		
+		
+		<!-- MayToMany Mapping -->
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.ManyToMany.Entity.Student"/>
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.ManyToMany.Entity.Course"/>
+		
+		<!-- HQL Classes -->
+		
+		<!-- MayToMany Mapping -->
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.HQL.Entity.EmployeeHql"/>
+		<mapping class="com.Joctopus.Hib_Batch.Mappings.HQL.Entity.Address"/>
+		
 	</session-factory>
 
 

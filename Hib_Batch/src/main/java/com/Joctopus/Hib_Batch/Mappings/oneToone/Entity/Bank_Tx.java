@@ -10,11 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "bank_tx")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="txn")
 public class Bank_Tx {
 
 	@Id
