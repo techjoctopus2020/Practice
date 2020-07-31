@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<!-- configure all external benas is ctreated by developer -->
+
+	<bean id="hello" class="com.joctopus.model.HelloWorld">
+
+		<property name="name" value="Ravali"></property>
+
+	</bean>
+	
+	<!-- Constructor Based DI configuration -->
+
+	<bean id="emp" class=" com.joctopus.model.Employee">
+
+		<constructor-arg value="100" type="java.lang.Integer" />
+		<constructor-arg value="Hema" type="java.lang.String" />
+		<constructor-arg value="100000" type="java.lang.String" />
+		
+		<constructor-arg  ref="add"/>
+		
+		<!-- List Configuration for Primititve type values -->
+		<constructor-arg>
+			<list>
+				<value>Madhu</value>
+				<value>Madhu</value>
+				<value>Poojitha</value>
+				<value>Janaki</value>
+				<value>Surendra</value>
+				<value>Surendra</value>
+				<value>Sai</value>
+			
+			</list>
+		
+		</constructor-arg>
+		
+		<!-- Set Configuration for Primititve type values -->
+		
+		<constructor-arg>
+			<set>
+				<value>Madhu</value>
+				<value>Madhu</value>
+				<value>Poojitha</value>
+				<value>Janaki</value>
+				<value>Surendra</value>
+				<value>Surendra</value>
+				<value>Sai</value>
+			
+			</set>
+		
+		</constructor-arg>
+		
+		<!-- Set Configuration for Primititve type values -->
+		
+		<constructor-arg>
+			<map>
+				<entry  key="FullStack"  value="JanakiRam"></entry>
+				<entry  key="null"  value="null"></entry>
+				<entry  key="null"  value="JanakiRam"></entry>
+				<entry  key="FullStack"  value="JanakiRam"></entry>
+				<entry  key="Developer"  value="Hema"></entry>
+				<entry  key="Madhu"  value="null"></entry>
+				
+			
+			</map>
+		
+		</constructor-arg>
+		
+		<!-- Mapp list of Address to Employee -->
+		
+		<constructor-arg>
+		
+			<list>
+				<ref bean="add1"/>
+				<ref bean="add2"/>
+			</list>
+		
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="add" class="com.joctopus.model.Address">
+		<constructor-arg value="Bangalore" type="java.lang.String" />
+		<constructor-arg value="Karnataka" type="java.lang.String" />
+		<constructor-arg value="INDIA" type="java.lang.String" />
+	</bean>
+	
+	<!-- Configure List of Address and map to  -->
+	
+	<bean id="add1" class="com.joctopus.model.Address">
+		<constructor-arg value="Hyderabad" type="java.lang.String" />
+		<constructor-arg value="Telangana" type="java.lang.String" />
+		<constructor-arg value="INDIA" type="java.lang.String" />
+	</bean>
+	
+	<bean id="add2" class="com.joctopus.model.Address">
+		<constructor-arg value="Vijayawada" type="java.lang.String" />
+		<constructor-arg value="Andhra" type="java.lang.String" />
+		<constructor-arg value="INDIA" type="java.lang.String" />
+	</bean>
+
+
+
+</beans>
